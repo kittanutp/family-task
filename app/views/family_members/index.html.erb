@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Family Member Dashboard</h1>
+<%= link_to "Add family member", new_family_member_path %>
+
+
+<table class="table">
+<div id="family_members">
+  <% @family_members.each do |family_member| %>
+    <%= render family_member %>
+    <p>
+      <%= link_to "Show this family member", family_member %>
+    </p>
+  <% end %>
+  </div>
+  </table>
+
