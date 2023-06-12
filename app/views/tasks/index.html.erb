@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>All tasks</h1>
+<%= link_to "Add task", new_task_path %>
+
+<table class="table table-striped table-bordered table-hover">
+<thead class="thead-dark">
+  <tr>
+    <th>Task</th>
+    <th>Status</th>
+    <th>Family Member</th>
+    <th>Actions</th>
+  </tr>
+</thead>
+<tbody>
+  <% @tasks.each do |task| %>
+    <tr>
+    <td><%= task.name %></td>
+    <td><%= task.status %></td>
+    <td><%= task.name %></td>
+    <td><%= link_to "Show this task", task %></td>
+    </tr>
+  <% end %>
+</table>
