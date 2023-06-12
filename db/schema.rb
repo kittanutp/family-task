@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_12_152405) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_12_161351) do
   create_table "family_members", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "task"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "family_member_id"
+    t.index ["family_member_id"], name: "index_tasks_on_family_member_id"
+  end
+
+  add_foreign_key "tasks", "family_members"
 end
