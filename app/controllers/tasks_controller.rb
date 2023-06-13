@@ -12,7 +12,7 @@ class TasksController < ApplicationController
       @task.status = 1
       respond_to do |format|
         if @task.save
-          format.html { redirect_to tasks_path, notice: "Task was successfully updated." }
+          format.html { redirect_back(fallback_location: tasks_path, notice: "Task was successfully updated.") }
           format.json { render :show, status: :ok, location: @task }
         else
           format.html { render :new, status: :unprocessable_entity }

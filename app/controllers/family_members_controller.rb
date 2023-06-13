@@ -38,6 +38,9 @@ class FamilyMembersController < ApplicationController
     end
   end
 
+  def show
+    @family_member = FamilyMember.find(params[:id])
+  end
   private
 
     # Only allow a list of trusted parameters through.

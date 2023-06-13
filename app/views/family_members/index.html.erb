@@ -16,7 +16,11 @@
     <tr>
     <td><%= family_member.name %></td>
     <td><%= family_member.tasks.length %></td>
-    <td><%= link_to "Show this family member", family_member %></td>
+    <td><%= link_to "View tasks", family_member_path(family_member) %></td>
     </tr>
   <% end %>
 </table>
+
+
+<%= link_to "View All Tasks", 'tasks#index'%>
+
