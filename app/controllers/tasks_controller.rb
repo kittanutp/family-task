@@ -37,6 +37,14 @@ class TasksController < ApplicationController
       end
     end
 
+    def delete_all
+      Task.delete_all
+      respond_to do |format|
+          format.html { redirect_to tasks_path, notice: "Task was successfully clear." }
+          format.json { render :show, status: :ok}
+      end
+    end
+
 
     private
 
