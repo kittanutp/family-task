@@ -18,7 +18,7 @@
     <td><%= task.task %></td>
     <td><%= task.status %></td>
     <td><%= task.family_member.name %></td>
-    <td><%= link_to "Show this task", task %></td>
+    <td><%= link_to "Mark as completed", tasks_set_status_path(task) %></td>
     </tr>
   <% end %>
 </table>
