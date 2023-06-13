@@ -15,7 +15,7 @@
   <% @family_members.each do |family_member| %>
     <tr>
     <td><%= family_member.name %></td>
-    <td><%= family_member.name %></td>
+    <td><%= family_member.tasks.length %></td>
     <td><%= link_to "Show this family member", family_member %></td>
     </tr>
   <% end %>

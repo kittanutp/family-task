@@ -15,9 +15,9 @@
 <tbody>
   <% @tasks.each do |task| %>
     <tr>
-    <td><%= task.name %></td>
+    <td><%= task.task %></td>
     <td><%= task.status %></td>
-    <td><%= task.name %></td>
+    <td><%= task.family_member.name %></td>
     <td><%= link_to "Show this task", task %></td>
     </tr>
   <% end %>

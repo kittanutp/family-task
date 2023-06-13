@@ -12,14 +12,11 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :task, style: "display: block" %>
+    <%= form.text_field :task %>
+  <%= form.label :family_member_id, "Family Member Name", style: "display: block" %>
+  <%= form.collection_select :family_member_id, FamilyMember.all, :id, :name, prompt: true%>
   </div>
-  <div>
-  <%= form.label :family_member, style: "display: block" %>
-  <%= form.text_field :family_member %>
-  </div>
-
 
   <div>
     <%= form.submit %>
