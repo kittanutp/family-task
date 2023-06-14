@@ -38,6 +38,19 @@ class FamilyMembersController < ApplicationController
     end
   end
 
+  def tasks_for_all_family_members
+    family_members = FamilyMember.all
+    result = Array.new()
+    family_members.each do |family_member|
+      result.append({
+        name: family_member.name,
+        tasks: family_member.tasks.map { |task| { name: task.task, status: task.status } }
+      })
+
+    end
+    render json: result
+  end
+
   def show
     @family_member = FamilyMember.find(params[:id])
   end
