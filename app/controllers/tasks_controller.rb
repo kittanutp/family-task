@@ -13,10 +13,10 @@ class TasksController < ApplicationController
       respond_to do |format|
         if @task.save
           format.html { redirect_back(fallback_location: tasks_path, notice: "Task was successfully updated.") }
-          format.json { render :show, status: :ok, location: @task }
+          format.json { render status: :ok, location: @task }
         else
-          format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+          format.html { render status: :unprocessable_entity }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
         end
       end
     end
@@ -31,7 +31,7 @@ class TasksController < ApplicationController
           format.html { redirect_to tasks_path, notice: "Task was successfully created." }
           format.json { render :show, status: :created, location: @task }
         else
-          format.html { render :new, status: :unprocessable_entity }
+          format.html { redirect_to tasks_path, status: :unprocessable_entity }
           format.json { render json: @task.errors, status: :unprocessable_entity }
         end
       end
@@ -41,10 +41,19 @@ class TasksController < ApplicationController
       Task.delete_all
       respond_to do |format|
           format.html { redirect_to tasks_path, notice: "Task was successfully clear." }
-          format.json { render :show, status: :ok}
+          format.json { render status: :ok}
       end
     end
 
+    def set_tasks_to_delay
+      today = Date.today
+      binding.irb
+      tasks = Task.where(created_at: today.beginning_of_day..today.end_of_day)
+                  .where(status: 0)
+                  .update(status: 2)
+
+      render(json: tasks, status: :ok)
+    end
 
     private
 
