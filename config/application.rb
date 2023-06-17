@@ -17,6 +17,6 @@ module FamilyTask
     # in config/environments, which are processed later.
     #
     config.time_zone = "Asia/Bangkok"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
   end
 end

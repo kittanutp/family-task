@@ -47,7 +47,6 @@ class TasksController < ApplicationController
 
     def set_tasks_to_delay
       today = Date.today
-      binding.irb
       tasks = Task.where(created_at: today.beginning_of_day..today.end_of_day)
                   .where(status: 0)
                   .update(status: 2)
