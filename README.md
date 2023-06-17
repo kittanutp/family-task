@@ -10,4 +10,4 @@ Technical Challenge Project: to-do style app for a family that lets you create f
     /bin/rails db:migrate
 
 * Deployment instructions - Add cron job when deploy
-    - Inside the Heroku Scheduler dashboard, add a new job with the following command - Add rake task_name:my_task
+    - Inside the Heroku Scheduler dashboard, add a new job with the following command - Add `rake set_tasks_status:set_tasks_to_delay`
